@@ -11,29 +11,27 @@ public class Window extends Application {
 
 	BorderPane mainPane = new BorderPane();
 	
-	PathField pathField = null;
+	PathField bottomField = new PathField();
+	
+	PathField topField = new PathField();
 	
 	ButtonPane buttonPane = null;
-	
-	String fileName = null;
 	
 	@Override
 	public void start(Stage primaryStage) {
 		
 		
-		mainPane.setBottom(this.pathField = new PathField());
+		mainPane.setBottom(this.bottomField);
 		
-		mainPane.setCenter(this.buttonPane = new ButtonPane(this.pathField));
+		mainPane.setCenter(this.buttonPane = new ButtonPane(this.bottomField));
+		
+		mainPane.setTop(this.topField);
 
 		primaryStage.setScene(new Scene(mainPane));
 		
 		primaryStage.show();
 		
 	}
-	
-	public void setFile(String inFileName) { this.fileName = inFileName; }
-	
-	public String getFile() { return this.fileName; }
 
 	public static void main(String[] args) {
 		launch(args);
