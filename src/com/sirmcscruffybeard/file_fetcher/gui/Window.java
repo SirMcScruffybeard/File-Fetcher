@@ -1,5 +1,7 @@
 package com.sirmcscruffybeard.file_fetcher.gui;
 
+import java.io.File;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -12,6 +14,8 @@ public class Window extends Application {
 	PathField pathField = null;
 	
 	ButtonPane buttonPane = null;
+	
+	String fileName = null;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -26,6 +30,10 @@ public class Window extends Application {
 		primaryStage.show();
 		
 	}
+	
+	public void setFile(String inFileName) { this.fileName = inFileName; }
+	
+	public String getFile() { return this.fileName; }
 
 	public static void main(String[] args) {
 		launch(args);
